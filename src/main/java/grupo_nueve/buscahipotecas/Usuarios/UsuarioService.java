@@ -1,5 +1,7 @@
 package grupo_nueve.buscahipotecas.Usuarios;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -13,6 +15,10 @@ public class UsuarioService {
     public void create (Usuario usuario)
     {
         usuarioRepository.save(usuario);
+    }
+
+    public List<Usuario> getAll() {
+        return usuarioRepository.findAll();
     }
 
 

@@ -1,7 +1,8 @@
-package grupo_nueve.buscahipotecas.Usuarios;
+package grupo_nueve.buscahipotecas.Hipotecas;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import grupo_nueve.buscahipotecas.Usuarios.Usuario;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
@@ -13,21 +14,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @RestController
-@RequestMapping("/usuario")
+@RequestMapping("/hipoteca")
 @RequiredArgsConstructor // Inyeccion de dependencia.
-public class UsuarioController {
+public class HipotecaController {
 
-    private final UsuarioService usuarioService; // Inyeccion de dependencia.
+    private final HipotecaService hipotecaService; // Inyeccion de dependencia.
 
     @PostMapping("/create")
-    public void createUsuario(@RequestBody Usuario usuario)
+    public void createHipoteca(@RequestBody Hipoteca hipoteca)
     {
-        usuarioService.create(usuario);
+        hipotecaService.create(hipoteca);
     }
 
     @GetMapping("/all")
-    public List<Usuario> all()
+    public List<Hipoteca> all()
     {
-        return usuarioService.getAll();
+        return hipotecaService.getAll();
     }
 }
